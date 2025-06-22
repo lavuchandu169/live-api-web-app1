@@ -1,7 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
 @layer base {
   :root {
@@ -44,6 +45,44 @@
     --sidebar-border: 217.2 32.6% 17.5%;
     --sidebar-ring: 142 86% 28%;
   }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
 }
 
 @layer base {
@@ -52,15 +91,55 @@
   }
 
   body {
-    @apply bg-space-darker text-foreground font-space;
+    @apply bg-background text-foreground;
     background-image: 
-      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
-      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(white, rgba(255,255,255,0.4) 2px, transparent 50px),
+      radial-gradient(white, rgba(255,255,255,0.3) 1px, transparent 30px),
+      radial-gradient(white, rgba(255,255,255,0.2) 1px, transparent 25px),
       linear-gradient(135deg, #0B1426 0%, #1e3a8a 50%, #312e81 100%);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 100% 100%;
-    background-position: 0 0, 40px 60px, 130px 270px, 0 0;
-    animation: twinkle 4s ease-in-out infinite alternate;
+    background-size: 
+      800px 800px,
+      600px 600px,
+      400px 400px,
+      550px 550px, 
+      350px 350px, 
+      200px 200px,
+      100% 100%;
+    background-position: 
+      0 0,
+      100% 100%,
+      50% 50%,
+      0 0, 
+      40px 60px, 
+      90px 140px,
+      0 0;
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% {
+      background-position: 
+        0 0,
+        100% 100%,
+        50% 50%,
+        0 0, 
+        40px 60px, 
+        90px 140px,
+        0 0;
+    }
+    100% {
+      background-position: 
+        -100px -100px,
+        calc(100% + 50px) calc(100% + 50px),
+        calc(50% - 25px) calc(50% + 25px),
+        50px 50px, 
+        90px 110px, 
+        140px 190px,
+        0 0;
+    }
   }
 
   .glass-card {
@@ -68,6 +147,6 @@
   }
 
   .space-glow {
-    box-shadow: 0 0 30px rgba(123, 58, 237, 0.3);
+    box-shadow: 0 0 30px rgba(123, 58, 237, 0.4), 0 0 60px rgba(123, 58, 237, 0.2);
   }
 }
